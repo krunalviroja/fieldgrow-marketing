@@ -1,0 +1,52 @@
+.panel {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.error {
+  margin-top: 0.8rem;
+  color: #b91c1c;
+}
+
+.ok {
+  margin-top: 0.8rem;
+  color: #166534;
+  font-weight: 700;
+}
+
+.ctaCard {
+  padding: 1.6rem;
+  border-radius: var(--fg-radius-lg);
+  background:
+    radial-gradient(circle at top right, rgba(45, 212, 191, 0.35), transparent 45%),
+    linear-gradient(160deg, #0b1f1e, #0f3f3a);
+  color: rgba(255, 255, 255, 0.88);
+  display: grid;
+  align-content: center;
+  gap: 0.9rem;
+
+  h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.55rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.72);
+  }
+}
+
+@media (max-width: 860px) {
+  .panel {
+    grid-template-columns: 1fr;
+  }
+}

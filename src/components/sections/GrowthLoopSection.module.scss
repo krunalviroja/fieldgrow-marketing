@@ -1,0 +1,80 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.visual {
+  margin-top: 1.5rem;
+  border-radius: var(--fg-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--fg-line);
+  box-shadow: var(--fg-shadow);
+  max-width: 420px;
+
+  img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.steps li button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  text-align: left;
+  padding: 1rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  span {
+    font-family: var(--font-display);
+    color: var(--fg-muted);
+  }
+
+  strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+.active button {
+  background: white;
+  border-color: rgba(15, 118, 110, 0.35);
+  box-shadow: var(--fg-shadow-soft);
+  transform: translateX(6px);
+
+  span {
+    color: var(--fg-coral);
+  }
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    max-width: 100%;
+  }
+}
