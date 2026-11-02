@@ -30,10 +30,10 @@ export function ExperienceLab() {
       <div className="fg-container">
         <div className={styles.head}>
           <p className="fg-eyebrow">Experience Lab</p>
-          <h2 className="fg-title">Don&apos;t read features. Operate them.</h2>
+          <h2 className="fg-title">Don&apos;t just read features — try them</h2>
           <p className="fg-lead">
-            Generate social posts, deploy a booking site, book on WhatsApp, recover missed revenue,
-            open Customer 360, and see real job profit — interactive slices of the product.
+            Like the best FSM demos, feel the product: generate posts, deploy a site, book on
+            WhatsApp, recover missed revenue, open Customer 360, and see real job profit.
           </p>
         </div>
 

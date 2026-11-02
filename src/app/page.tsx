@@ -1,31 +1,37 @@
 import { Hero } from "@/components/hero/Hero";
-import { TickerSection } from "@/components/sections/TickerSection";
-import { SystemSection } from "@/components/sections/SystemSection";
+import { LiveOpsFeed } from "@/components/effects/LiveOpsFeed";
+import { TrustSection } from "@/components/sections/TrustSection";
+import { PlatformSection } from "@/components/sections/PlatformSection";
+import { WorkflowSection } from "@/components/sections/WorkflowSection";
+import { FeaturesSection } from "@/components/sections/FeaturesSection";
 import { GrowthLoopSection } from "@/components/sections/GrowthLoopSection";
+import { RevenueSimulator } from "@/components/sections/RevenueSimulator";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { ProductSection } from "@/components/sections/ProductSection";
-import { InsightSection } from "@/components/sections/InsightSection";
 import { ExperienceLab } from "@/components/experience/ExperienceLab";
-import { ComparisonSection } from "@/components/sections/ComparisonSection";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { ComparisonSection } from "@/components/sections/ComparisonSection";
 import { ResourcesSection } from "@/components/sections/ResourcesSection";
-import { LoginSection } from "@/components/sections/LoginSection";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <TickerSection />
-      <SystemSection />
+      <LiveOpsFeed />
+      <TrustSection />
+      <PlatformSection />
+      <WorkflowSection />
+      <FeaturesSection />
       <GrowthLoopSection />
+      <RevenueSimulator />
       <ProblemSection />
       <ProductSection />
-      <InsightSection />
       <ExperienceLab />
-      <ComparisonSection />
       <IndustriesSection />
+      <TestimonialsSection />
+      <ComparisonSection />
       <ResourcesSection />
-      <LoginSection />
     </>
   );
 }

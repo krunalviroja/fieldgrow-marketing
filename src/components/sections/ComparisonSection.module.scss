@@ -4,8 +4,8 @@
 
 .head {
   display: grid;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
 }
 
 .tableWrap {
@@ -13,6 +13,7 @@
   border: 1px solid var(--fg-line);
   border-radius: var(--fg-radius-lg);
   background: #fff;
+  box-shadow: var(--fg-shadow-soft);
 }
 
 .table {
@@ -22,18 +23,18 @@
 
   th,
   td {
-    padding: 1.1rem 1rem;
+    padding: 1.05rem 1rem;
     text-align: left;
     border-bottom: 1px solid var(--fg-line);
     vertical-align: middle;
   }
 
   th {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--fg-muted);
-    background: rgba(18, 22, 29, 0.02);
+    background: #f8fafc;
   }
 
   tbody tr:last-child td {
@@ -42,12 +43,11 @@
 
   td:first-child {
     font-weight: 700;
-    color: var(--fg-ink);
   }
 }
 
 .fgCol {
-  background: rgba(23, 163, 122, 0.06);
+  background: var(--fg-brand-soft);
 }
 
 .dots {
@@ -58,15 +58,15 @@
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background: rgba(18, 22, 29, 0.12);
+    background: #e2e8f0;
     display: inline-block;
   }
 }
 
 .filled {
-  background: var(--fg-ink-soft) !important;
+  background: #64748b !important;
 }
 
 .hi .filled {
-  background: var(--fg-field-bright) !important;
+  background: var(--fg-brand) !important;
 }

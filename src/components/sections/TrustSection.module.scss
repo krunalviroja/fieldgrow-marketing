@@ -1,0 +1,39 @@
+.section {
+  padding: 1.5rem 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1.4rem;
+  border-radius: var(--fg-radius-lg);
+  background: #fff;
+  border: 1px solid var(--fg-line);
+  box-shadow: var(--fg-shadow-soft);
+}
+
+.item {
+  text-align: center;
+  padding: 0.5rem;
+
+  strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    letter-spacing: -0.03em;
+    color: var(--fg-ink);
+    margin-bottom: 0.35rem;
+  }
+
+  span {
+    font-size: 0.88rem;
+    color: var(--fg-muted);
+  }
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

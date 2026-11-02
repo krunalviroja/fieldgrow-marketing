@@ -18,8 +18,8 @@ export function ComparisonSection() {
     <section className={`fg-section ${styles.section}`} id="compare">
       <div className="fg-container">
         <div className={styles.head}>
-          <p className="fg-eyebrow">Positioning</p>
-          <h2 className="fg-title">Where the market is empty.</h2>
+          <p className="fg-eyebrow">Why FieldGrow</p>
+          <h2 className="fg-title">Where the market is empty</h2>
           <p className="fg-lead">
             Traditional FSM and field-force tools win on operations. FieldGrow wins the growth
             column they leave blank.

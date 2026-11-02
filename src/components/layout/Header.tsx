@@ -9,7 +9,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -38,34 +38,19 @@ export function Header() {
               {link.label}
             </a>
           ))}
-
-          <div className={styles.navActions}>
-            <a
-              className={`fg-btn fg-btn--login ${styles.login}`}
-              href={brand.loginUrl}
-              onClick={() => setOpen(false)}
-            >
-              Login
-            </a>
-            <a
-              className="fg-btn fg-btn--primary"
-              href="#resources"
-              onClick={() => setOpen(false)}
-            >
-              Download Pitch
+          <div className={styles.actions}>
+            <a className="fg-btn fg-btn--primary" href="#resources" onClick={() => setOpen(false)}>
+              Start free trial
             </a>
           </div>
         </nav>
 
-        <div className={styles.mobileActions}>
-          <a className={`fg-btn fg-btn--login ${styles.loginMobile}`} href={brand.loginUrl}>
-            Login
-          </a>
+        <div className={styles.mobileBar}>
           <button
+            type="button"
             className={styles.menu}
             aria-expanded={open}
             aria-label="Toggle menu"
-            type="button"
             onClick={() => setOpen((v) => !v)}
           >
             <span />
