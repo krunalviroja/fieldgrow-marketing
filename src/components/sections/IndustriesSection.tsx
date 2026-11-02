@@ -1,35 +1,43 @@
-import { industries } from "@/lib/content";
+"use client";
+
+import { motion } from "framer-motion";
+import { industries, pitchBeats } from "@/lib/content";
 import styles from "./IndustriesSection.module.scss";
 
 export function IndustriesSection() {
   return (
-    <section className={`fg-section ${styles.section}`} id="industries">
+    <section id="industries" className={`fg-section ${styles.section}`}>
       <div className="fg-container">
         <div className={styles.head}>
-          <p className="fg-eyebrow">Built for service businesses</p>
-          <h2 className="fg-title">Start sharp. Expand later.</h2>
-          <p className="fg-lead">
-            We begin with verticals that already live on WhatsApp, AMC, technician visits, and Google
-            reviews — perfect for the Service-to-Growth Engine™.
-          </p>
+          <p className="fg-eyebrow">Industries</p>
+          <h2 className="fg-title">Built first for service businesses that live on repeat work.</h2>
         </div>
+
         <div className={styles.grid}>
-          {industries.map((item) => (
-            <article key={item.name}>
-              <h3>{item.name}</h3>
-              <p>{item.focus}</p>
-            </article>
+          {industries.map((industry, index) => (
+            <motion.article
+              key={industry.name}
+              className={styles.card}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.06 }}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{industry.name}</h3>
+              <p>{industry.focus}</p>
+            </motion.article>
           ))}
         </div>
-        <div className={styles.offline}>
-          <img src="/images/technician-mobile.jpg" alt="Technician using FieldGrow mobile offline" />
-          <div>
-            <h3>Offline-first for Indian field reality</h3>
-            <p>
-              Basements, industrial zones, rural routes — jobs, photos, checklists, and signatures
-              save locally and sync automatically when network returns.
-            </p>
+
+        <div className={styles.pitch}>
+          <h3>The sales conversation that lands</h3>
+          <div className={styles.beats}>
+            {pitchBeats.map((beat) => (
+              <p key={beat}>{beat}</p>
+            ))}
           </div>
+          <p className={styles.close}>That&apos;s exactly what FieldGrow solves.</p>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation } from "@tanstack/react-query";
-import { Button } from "primereact/button";
+import { brand } from "@/lib/content";
 import styles from "./ResourcesSection.module.scss";
 
 async function downloadFile(format: "pdf" | "docx") {
@@ -29,33 +29,33 @@ export function ResourcesSection() {
     <section className={`fg-section ${styles.section}`} id="resources">
       <div className={`fg-container ${styles.panel}`}>
         <div>
-          <p className="fg-eyebrow">Share with your team</p>
-          <h2 className="fg-title">Download the FieldGrow pitch for business owners</h2>
+          <p className="fg-eyebrow">Resources</p>
+          <h2 className="fg-title">Take the FieldGrow story into the room.</h2>
           <p className="fg-lead">
-            A professional PDF and DOCX you can forward to founders, operations managers, and
-            partners — covering features, unique growth loops, and how FieldGrow helps manage and
-            scale service businesses.
+            Download a CEO-ready pitch covering the Service-to-Growth Engine™, product depth,
+            problems we solve, and how migration works from WhatsApp + Excel chaos.
           </p>
           <div className={styles.actions}>
-            <Button
-              label="Download PDF"
-              icon="pi pi-file-pdf"
-              loading={mutation.isPending && mutation.variables === "pdf"}
+            <button
+              type="button"
+              className="fg-btn fg-btn--primary"
+              disabled={mutation.isPending}
               onClick={() => mutation.mutate("pdf")}
-            />
-            <Button
-              label="Download DOCX"
-              icon="pi pi-file-word"
-              severity="secondary"
-              outlined
-              loading={mutation.isPending && mutation.variables === "docx"}
+            >
+              {mutation.isPending && mutation.variables === "pdf" ? "Preparing PDF…" : "Download PDF"}
+            </button>
+            <button
+              type="button"
+              className="fg-btn fg-btn--secondary"
+              disabled={mutation.isPending}
               onClick={() => mutation.mutate("docx")}
-            />
-            <a className="fg-btn fg-btn--ghost" href="/docs/FieldGrow-Business-Pitch.pdf" download>
+            >
+              {mutation.isPending && mutation.variables === "docx"
+                ? "Preparing DOCX…"
+                : "Download DOCX"}
+            </button>
+            <a className="fg-btn fg-btn--dark" href="/docs/FieldGrow-Business-Pitch.pdf" download>
               Direct PDF
-            </a>
-            <a className="fg-btn fg-btn--ghost" href="/docs/FieldGrow-Business-Pitch.docx" download>
-              Direct DOCX
             </a>
           </div>
           {mutation.isError && (
@@ -65,13 +65,14 @@ export function ResourcesSection() {
             <p className={styles.ok}>Download started. Share it with decision makers.</p>
           )}
         </div>
+
         <div className={styles.ctaCard}>
           <h3>Ready to stop being the operating system?</h3>
           <p>
             Let FieldGrow run jobs, recover missed revenue, automate WhatsApp, and turn every service
-            into the next booking.
+            into the next booking — including free or low-cost migration.
           </p>
-          <a className="fg-btn fg-btn--primary" href="mailto:hello@fieldgrow.app">
+          <a className="fg-btn fg-btn--primary" href={`mailto:${brand.email}`}>
             Book a discovery call
           </a>
         </div>

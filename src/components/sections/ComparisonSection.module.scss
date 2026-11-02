@@ -1,80 +1,72 @@
+.section {
+  background: var(--fg-paper);
+}
+
 .head {
-  margin-bottom: 1.8rem;
   display: grid;
-  gap: 0.8rem;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
 }
 
 .tableWrap {
   overflow-x: auto;
-  border-radius: var(--fg-radius);
   border: 1px solid var(--fg-line);
-  background: white;
-  box-shadow: var(--fg-shadow-soft);
+  border-radius: var(--fg-radius-lg);
+  background: #fff;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 720px;
-  }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
 
   th,
   td {
-    padding: 0.95rem 1rem;
+    padding: 1.1rem 1rem;
     text-align: left;
     border-bottom: 1px solid var(--fg-line);
-    font-size: 0.92rem;
+    vertical-align: middle;
   }
 
   th {
-    background: #0b1f1e;
-    color: white;
-    font-size: 0.8rem;
-    letter-spacing: 0.04em;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: var(--fg-muted);
+    background: rgba(18, 22, 29, 0.02);
   }
 
-  tr:last-child td {
+  tbody tr:last-child td {
     border-bottom: 0;
   }
-}
 
-.highlight {
-  background: rgba(45, 212, 191, 0.12);
-  font-weight: 700;
-  color: var(--fg-teal-deep);
-}
-
-.modules {
-  margin-top: 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-
-  div {
-    padding: 1.3rem;
-    border-radius: var(--fg-radius);
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid var(--fg-line);
-  }
-
-  h3 {
-    margin: 0 0 0.8rem;
-    font-size: 1.15rem;
-  }
-
-  ul {
-    margin: 0;
-    padding-left: 1.1rem;
-    color: var(--fg-muted);
-  }
-
-  li + li {
-    margin-top: 0.35rem;
+  td:first-child {
+    font-weight: 700;
+    color: var(--fg-ink);
   }
 }
 
-@media (max-width: 720px) {
-  .modules {
-    grid-template-columns: 1fr;
+.fgCol {
+  background: rgba(23, 163, 122, 0.06);
+}
+
+.dots {
+  display: inline-flex;
+  gap: 5px;
+
+  i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(18, 22, 29, 0.12);
+    display: inline-block;
   }
+}
+
+.filled {
+  background: var(--fg-ink-soft) !important;
+}
+
+.hi .filled {
+  background: var(--fg-field-bright) !important;
 }

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Manrope, Syne } from "next/font/google";
+import { Figtree, Unbounded } from "next/font/google";
 import { AppProviders } from "@/components/providers/AppProviders";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.scss";
 
-const syne = Syne({
-  variable: "--font-syne",
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["500", "600", "700", "800"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
@@ -31,11 +31,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${syne.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${unbounded.variable} ${figtree.variable}`}>
       <body>
         <AppProviders>
           <Header />
-          <main>{children}</main>
+          <main id="top">{children}</main>
           <Footer />
         </AppProviders>
       </body>

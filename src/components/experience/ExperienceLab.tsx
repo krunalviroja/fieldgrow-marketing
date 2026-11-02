@@ -30,10 +30,10 @@ export function ExperienceLab() {
       <div className="fg-container">
         <div className={styles.head}>
           <p className="fg-eyebrow">Experience Lab</p>
-          <h2 className="fg-title">Don&apos;t read features. Feel them.</h2>
+          <h2 className="fg-title">Don&apos;t read features. Operate them.</h2>
           <p className="fg-lead">
-            Instead of a feature checklist, try a smaller version of how FieldGrow helps you manage
-            and grow — generate posts, deploy a site, book on WhatsApp, recover missed revenue.
+            Generate social posts, deploy a booking site, book on WhatsApp, recover missed revenue,
+            open Customer 360, and see real job profit — interactive slices of the product.
           </p>
         </div>
 
@@ -58,7 +58,9 @@ export function ExperienceLab() {
 
           <div className={styles.body}>
             <aside className={styles.side}>
-              <h3 style={{ marginTop: 0, fontFamily: "var(--font-display)" }}>{activeMeta.label}</h3>
+              <h3 style={{ marginTop: 0, fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}>
+                {activeMeta.label}
+              </h3>
               <p>{activeMeta.blurb}</p>
               <div className={styles.progress}>
                 Lab progress · {completedLabs.length}/{experienceTabs.length}
@@ -71,7 +73,7 @@ export function ExperienceLab() {
                 alt="FieldGrow dashboard preview"
                 style={{
                   marginTop: "1.25rem",
-                  borderRadius: 16,
+                  borderRadius: 14,
                   border: "1px solid var(--fg-line)",
                 }}
               />

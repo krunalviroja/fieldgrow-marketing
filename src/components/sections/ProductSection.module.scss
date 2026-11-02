@@ -1,0 +1,125 @@
+.section {
+  background:
+    linear-gradient(180deg, var(--fg-paper) 0%, #fff 40%, var(--fg-paper) 100%);
+}
+
+.head {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2.75rem;
+}
+
+.core {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.role {
+  padding: 1.6rem 1.4rem;
+  border-radius: var(--fg-radius-lg);
+  background: var(--fg-ink);
+  color: #fff;
+  min-height: 360px;
+
+  h3 {
+    color: #fff;
+    font-size: 1.45rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(243, 240, 234, 0.14);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  li {
+    position: relative;
+    padding-left: 1rem;
+    color: rgba(243, 240, 234, 0.78);
+    font-size: 0.95rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 1px;
+      background: var(--fg-signal);
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.growthHead {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+
+  h3 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+  }
+
+  p {
+    max-width: 36ch;
+  }
+}
+
+.growthGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.growthCard {
+  padding: 1.4rem;
+  border: 1px solid var(--fg-line);
+  border-radius: var(--fg-radius);
+  background: #fff;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  span {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--fg-signal);
+  }
+
+  h4 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    margin: 0.7rem 0 0.55rem;
+    letter-spacing: -0.03em;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--fg-line-strong);
+  }
+}
+
+@media (max-width: 960px) {
+  .core,
+  .growthGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .role {
+    min-height: 0;
+  }
+
+  .growthHead {
+    flex-direction: column;
+    align-items: start;
+  }
+}

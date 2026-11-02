@@ -9,18 +9,25 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`fg-container ${styles.inner}`}>
         <a href="#top" className={styles.brand} aria-label={brand.name}>
           <span className={styles.mark} aria-hidden>
-            FG
+            {brand.mark}
           </span>
           <span className={styles.name}>{brand.name}</span>
         </a>
@@ -31,19 +38,41 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <a className="fg-btn fg-btn--primary" href="#resources" onClick={() => setOpen(false)}>
-            Download Pitch Deck
-          </a>
+
+          <div className={styles.navActions}>
+            <a
+              className={`fg-btn fg-btn--login ${styles.login}`}
+              href={brand.loginUrl}
+              onClick={() => setOpen(false)}
+            >
+              Login
+            </a>
+            <a
+              className="fg-btn fg-btn--primary"
+              href="#resources"
+              onClick={() => setOpen(false)}
+            >
+              Download Pitch
+            </a>
+          </div>
         </nav>
 
-        <button
-          className={styles.menu}
-          aria-expanded={open}
-          aria-label="Toggle menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <i className={`pi ${open ? "pi-times" : "pi-bars"}`} />
-        </button>
+        <div className={styles.mobileActions}>
+          <a className={`fg-btn fg-btn--login ${styles.loginMobile}`} href={brand.loginUrl}>
+            Login
+          </a>
+          <button
+            className={styles.menu}
+            aria-expanded={open}
+            aria-label="Toggle menu"
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
     </header>
   );

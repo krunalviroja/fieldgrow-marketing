@@ -1,16 +1,16 @@
 @mixin container {
-  width: min(100% - 2rem, var(--fg-container));
+  width: min(100% - 2.5rem, var(--fg-container));
   margin-inline: auto;
 }
 
 @mixin section {
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  padding: clamp(4.5rem, 9vw, 8rem) 0;
 }
 
 @mixin glass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(243, 240, 234, 0.78);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(18, 22, 29, 0.08);
 }
 
 @mixin button-reset {
@@ -23,6 +23,12 @@
 }
 
 @mixin focus-ring {
-  outline: 2px solid var(--fg-mint);
+  outline: 2px solid var(--fg-sky);
   outline-offset: 3px;
+}
+
+@mixin topo {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(18, 22, 29, 0.08) 1px, transparent 0);
+  background-size: 28px 28px;
 }
