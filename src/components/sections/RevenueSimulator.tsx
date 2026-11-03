@@ -32,7 +32,7 @@ export function RevenueSimulator() {
   }, [recovered, spring]);
 
   return (
-    <section id="simulator" className={`fg-section ${styles.section}`}>
+    <section id="revenue" className={`fg-section ${styles.section}`}>
       <div className="fg-container">
         <div className={styles.head}>
           <p className="fg-eyebrow">Interactive growth lab</p>

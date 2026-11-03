@@ -21,9 +21,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
-  title: "FieldGrow | Field Service Management + Growth Platform",
+  title: "FieldGrow | Run the work. Grow the business.",
   description:
-    "Run your field team. Get more customers. Get paid faster. Bring customers back. FieldGrow is the business operating system for field service businesses.",
+    "The Service-to-Growth Engine for Indian field service businesses. Run your team, recover missed revenue, and turn every completed job into the next booking.",
   openGraph: {
     title: "FieldGrow",
     description: "Field Service + Customer Growth Platform for service businesses.",
@@ -33,7 +33,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${outfit.variable} ${plusJakarta.variable}`}>
+    <html
+      lang="en"
+      className={`${outfit.variable} ${plusJakarta.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <AppProviders>
           <ScrollProgress />

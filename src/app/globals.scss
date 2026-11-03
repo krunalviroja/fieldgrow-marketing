@@ -22,6 +22,11 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  color: #0b1020;
+  background: var(--fg-brand);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -92,6 +97,11 @@ p {
   max-width: 18ch;
 }
 
+.fg-mono {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
 .fg-lead {
   font-size: clamp(1.02rem, 1.6vw, 1.16rem);
   max-width: 54ch;
@@ -128,16 +138,17 @@ p {
 .fg-btn--primary {
   color: #fff;
   background: var(--fg-brand);
-  box-shadow: 0 12px 28px rgba(21, 94, 239, 0.28);
+  color: #0b1020;
+  box-shadow: 0 12px 28px rgba(255, 159, 28, 0.24);
 
   &:hover {
-    background: var(--fg-brand-deep);
+    background: #ffb84c;
   }
 }
 
 .fg-btn--secondary {
   color: var(--fg-ink);
-  background: #fff;
+  background: rgba(255, 253, 249, 0.85);
   border: 1.5px solid var(--fg-line-strong);
 }
 

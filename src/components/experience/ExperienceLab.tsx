@@ -26,11 +26,11 @@ export function ExperienceLab() {
   const progress = Math.round((completedLabs.length / experienceTabs.length) * 100);
 
   return (
-    <section className={`fg-section ${styles.section}`} id="experience">
+    <section className={`fg-section ${styles.section}`} id="playground">
       <div className="fg-container">
         <div className={styles.head}>
           <p className="fg-eyebrow">Experience Lab</p>
-          <h2 className="fg-title">Don&apos;t just read features — try them</h2>
+          <h2 className="fg-title">Touch the product before you talk to sales.</h2>
           <p className="fg-lead">
             Like the best FSM demos, feel the product: generate posts, deploy a site, book on
             WhatsApp, recover missed revenue, open Customer 360, and see real job profit.

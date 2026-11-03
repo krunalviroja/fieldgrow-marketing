@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "docs": "node ./node_modules/tsx/dist/cli.mjs ./scripts/write-docs.ts"
+    "docs": "node ./node_modules/tsx/dist/cli.mjs ./scripts/write-docs.ts",
+    "docs:guide": "node ./node_modules/tsx/dist/cli.mjs ./scripts/generate-customer-guide.ts",
+    "docs:compact": "node ./node_modules/tsx/dist/cli.mjs ./scripts/generate-compact-guide.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.105.0",

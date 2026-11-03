@@ -3,16 +3,16 @@
   top: 0;
   z-index: 80;
   height: var(--fg-header);
-  background: rgba(245, 248, 252, 0.86);
+  background: rgba(11, 16, 32, 0.88);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .scrolled {
-  background: rgba(255, 255, 255, 0.94);
-  border-bottom-color: var(--fg-line);
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  background: rgba(11, 16, 32, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
 }
 
 .inner {
@@ -48,6 +48,7 @@
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: -0.04em;
+  color: #fff;
 }
 
 .nav {
@@ -58,7 +59,7 @@
   > a {
     font-size: 0.92rem;
     font-weight: 600;
-    color: var(--fg-ink-soft);
+    color: rgba(255, 253, 249, 0.7);
 
     &:hover {
       color: var(--fg-brand);
@@ -73,6 +74,21 @@
   margin-left: 0.4rem;
 }
 
+.industrySelect select {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  padding: 0.7rem 2rem 0.7rem 0.7rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 253, 249, 0.82);
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  option {
+    background: #faf6ee;
+    color: #0b1020;
+  }
+}
+
 .mobileBar {
   display: none;
   align-items: center;
@@ -85,7 +101,7 @@
   height: 44px;
   border-radius: 12px;
   border: 1.5px solid var(--fg-line-strong);
-  background: #fff;
+  background: #151c31;
   display: grid;
   place-content: center;
   gap: 5px;
@@ -115,7 +131,7 @@
     align-items: stretch;
     gap: 1.1rem;
     padding: 5.5rem 1.5rem 2rem;
-    background: #fff;
+    background: #151c31;
 
     > a {
       font-family: var(--font-display);

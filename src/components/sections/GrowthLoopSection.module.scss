@@ -1,7 +1,8 @@
 .section {
   background:
-    radial-gradient(circle at 10% 0%, rgba(15, 159, 110, 0.12), transparent 40%),
-    #0b1220;
+    radial-gradient(circle at 10% 0%, rgba(25, 211, 162, 0.14), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(255, 159, 28, 0.1), transparent 35%),
+    #0b1020;
   color: #fff;
 }
 
@@ -11,7 +12,7 @@
   margin-bottom: 2.25rem;
 
   :global(.fg-eyebrow) {
-    color: #7dd3fc;
+    color: #ff9f1c;
   }
 
   :global(.fg-title) {
@@ -45,7 +46,7 @@
 .progressFill {
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #38bdf8, #34d399);
+  background: linear-gradient(90deg, #ff9f1c, #19d3a2);
 }
 
 .steps button {
@@ -105,7 +106,7 @@
 .ringFg {
   fill: none;
   stroke: url(#none);
-  stroke: #38bdf8;
+  stroke: #ff9f1c;
   stroke-width: 3;
   stroke-linecap: round;
 }
@@ -124,7 +125,7 @@
   color: #fff !important;
 
   span {
-    color: #7dd3fc !important;
+  color: #ff9f1c !important;
   }
 }
 

@@ -20,11 +20,11 @@ export function GrowthLoopSection() {
   }, [paused]);
 
   return (
-    <section id="growth" className={`fg-section ${styles.section}`}>
+    <section id="loop" className={`fg-section ${styles.section}`}>
       <div className="fg-container">
         <div className={styles.head}>
           <p className="fg-eyebrow">Service-to-Growth Engine™</p>
-          <h2 className="fg-title">Our edge: every finished job creates the next one</h2>
+          <h2 className="fg-title">A completed job is not the finish line.</h2>
           <p className="fg-lead">
             Traditional FSM asks “Did you complete the job?” FieldGrow asks “How much more business
             can this completed job generate?”

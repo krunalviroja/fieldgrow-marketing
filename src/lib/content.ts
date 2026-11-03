@@ -9,14 +9,56 @@ export const brand = {
 };
 
 export const navLinks = [
-  { href: "#platform", label: "Platform" },
-  { href: "#features", label: "Features" },
-  { href: "#growth", label: "Growth" },
-  { href: "#simulator", label: "Simulator" },
-  { href: "#industries", label: "Industries" },
-  { href: "#customers", label: "Customers" },
-  { href: "#resources", label: "Resources" },
+  { href: "#loop", label: "The loop" },
+  { href: "#playground", label: "Live demos" },
+  { href: "#revenue", label: "Revenue" },
+  { href: "#migration", label: "Migration" },
 ];
+
+export const industryProfiles = {
+  ac: {
+    label: "AC / HVAC",
+    shortLabel: "AC",
+    city: "Ahmedabad",
+    customer: "Ramesh Patel",
+    service: "AC service",
+    nextService: "AMC renewal",
+    price: "₹1,999",
+    icon: "❄️",
+  },
+  cctv: {
+    label: "CCTV / Security",
+    shortLabel: "CCTV",
+    city: "Surat",
+    customer: "Mehul Shah",
+    service: "CCTV maintenance",
+    nextService: "Annual support",
+    price: "₹4,999",
+    icon: "◉",
+  },
+  pest: {
+    label: "Pest Control",
+    shortLabel: "Pest",
+    city: "Pune",
+    customer: "Sneha Kulkarni",
+    service: "Pest treatment",
+    nextService: "Quarterly plan",
+    price: "₹2,499",
+    icon: "✦",
+  },
+  electrical: {
+    label: "Electrical / Plumbing",
+    shortLabel: "Electrical",
+    city: "Vadodara",
+    customer: "Kiran Joshi",
+    service: "Electrical repair",
+    nextService: "Maintenance visit",
+    price: "₹1,499",
+    icon: "⚡",
+  },
+} as const;
+
+export type IndustryId = keyof typeof industryProfiles;
 
 export const hero = {
   eyebrow: "Field service + customer growth",

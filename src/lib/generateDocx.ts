@@ -1,121 +1,44 @@
-import {
-  AlignmentType,
-  Document,
-  HeadingLevel,
-  Packer,
-  Paragraph,
-  TextRun,
-  BorderStyle,
-} from "docx";
+import { AlignmentType, BorderStyle, Document, Footer, HeadingLevel, Packer, PageNumber, Paragraph, TextRun } from "docx";
 import { pitchDocument as d } from "./pitchContent";
-
-function heading(text: string, level: (typeof HeadingLevel)[keyof typeof HeadingLevel] = HeadingLevel.HEADING_1) {
-  return new Paragraph({
-    text,
-    heading: level,
-    spacing: { before: 320, after: 140 },
-  });
-}
-
-function body(text: string, opts?: { bold?: boolean }) {
-  return new Paragraph({
-    spacing: { after: 120 },
-    children: [
-      new TextRun({
-        text,
-        bold: opts?.bold,
-        size: 22,
-        font: "Calibri",
-        color: "1C3331",
-      }),
-    ],
-  });
-}
-
-function bullet(text: string) {
-  return new Paragraph({
-    spacing: { after: 80 },
-    bullet: { level: 0 },
-    children: [new TextRun({ text, size: 22, font: "Calibri", color: "1C3331" })],
-  });
-}
 
 export async function generateDocxBuffer(): Promise<Buffer> {
   const children: Paragraph[] = [
+    new Paragraph({ spacing: { after: 220 }, children: [new TextRun({ text: d.title, bold: true, size: 64, color: "0B1020" })] }),
+    new Paragraph({ spacing: { after: 260 }, children: [new TextRun({ text: d.headline, bold: true, size: 44, color: "0B1020" })] }),
+    new Paragraph({ spacing: { after: 180 }, children: [new TextRun({ text: d.subtitle, bold: true, size: 24, color: "42506A" })] }),
     new Paragraph({
-      alignment: AlignmentType.CENTER,
-      spacing: { after: 80 },
-      children: [
-        new TextRun({ text: d.title, bold: true, size: 56, font: "Calibri", color: "0F766E" }),
-      ],
+      spacing: { after: 360 },
+      border: { bottom: { style: BorderStyle.SINGLE, size: 18, color: "FF9F1C", space: 14 } },
+      children: [new TextRun({ text: d.tagline, size: 22, color: "42506A" })],
     }),
-    new Paragraph({
-      alignment: AlignmentType.CENTER,
-      spacing: { after: 80 },
-      children: [
-        new TextRun({ text: d.subtitle, bold: true, size: 28, font: "Calibri", color: "071413" }),
-      ],
-    }),
-    new Paragraph({
-      alignment: AlignmentType.CENTER,
-      spacing: { after: 200 },
-      border: {
-        bottom: { style: BorderStyle.SINGLE, size: 12, color: "FF5A36", space: 8 },
-      },
-      children: [
-        new TextRun({ text: d.tagline, italics: true, size: 22, font: "Calibri", color: "5A716E" }),
-      ],
-    }),
-    heading("Executive Promise"),
-    ...d.intro.map((p) => body(p)),
-    body(`Unique selling proposition: ${d.usp}`, { bold: true }),
-    heading("How FieldGrow Helps Business Owners"),
-    ...d.promise.map((p) => bullet(p)),
   ];
-
-  for (const audience of d.audiences) {
-    children.push(heading(audience.title, HeadingLevel.HEADING_2));
-    audience.points.forEach((p) => children.push(bullet(p)));
+  for (const section of d.sections) {
+    children.push(new Paragraph({ text: section.title, heading: HeadingLevel.HEADING_1 }));
+    for (const paragraph of section.paragraphs) {
+      children.push(new Paragraph({ text: paragraph, spacing: { after: 180, line: 290 } }));
+    }
   }
+  children.push(new Paragraph({ spacing: { before: 180, after: 120 }, children: [new TextRun({ text: d.contact.note, bold: true })] }));
+  children.push(new Paragraph({ text: d.contact.email }));
 
-  children.push(heading("Core Field Management Features"));
-  for (const feature of d.coreFeatures) {
-    children.push(body(feature.name, { bold: true }));
-    children.push(body(`Business impact: ${feature.help}`));
-  }
-
-  children.push(heading("Growth & Unique Features"));
-  for (const feature of d.growthFeatures) {
-    children.push(body(feature.name, { bold: true }));
-    children.push(body(`Business impact: ${feature.help}`));
-  }
-
-  children.push(heading(`${d.usp} — The Story`));
-  d.loopStory.forEach((step, i) => children.push(bullet(`${i + 1}. ${step}`)));
-
-  children.push(heading("Why Business Owners Choose FieldGrow"));
-  d.closing.forEach((p) => children.push(body(p)));
-
-  children.push(heading("Next Step"));
-  children.push(body(d.contact.note));
-  children.push(body(`Email: ${d.contact.email}`));
-  children.push(body(`Phone: ${d.contact.phone}`));
-
-  const doc = new Document({
+  return Packer.toBuffer(new Document({
     creator: "FieldGrow",
-    title: "FieldGrow Business Pitch",
-    description: "Product pitch for field service business owners",
-    sections: [
-      {
-        properties: {
-          page: {
-            margin: { top: 720, bottom: 720, left: 864, right: 864 },
-          },
-        },
-        children,
+    title: "FieldGrow | Run the work. Grow the business.",
+    description: d.subtitle,
+    background: { color: "FAF6EE" },
+    styles: {
+      default: {
+        document: { run: { font: "Calibri", size: 22, color: "42506A" } },
+        heading1: { run: { font: "Calibri", size: 30, bold: true, color: "0B1020" }, paragraph: { spacing: { before: 360, after: 180 }, keepNext: true } },
       },
-    ],
-  });
-
-  return Packer.toBuffer(doc);
+    },
+    sections: [{
+      properties: { page: { margin: { top: 720, bottom: 800, left: 864, right: 864 } } },
+      footers: { default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.RIGHT, children: [
+        new TextRun({ text: "FIELDGROW / SERVICE-TO-GROWTH ENGINE  |  ", size: 16, color: "748099" }),
+        new TextRun({ children: [PageNumber.CURRENT], size: 16, color: "748099" }),
+      ] })] }) },
+      children,
+    }],
+  }));
 }

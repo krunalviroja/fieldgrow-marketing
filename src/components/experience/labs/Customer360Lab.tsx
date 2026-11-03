@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { Button } from "primereact/button";
 import { useExperience } from "@/context/ExperienceContext";
+import { industryProfiles } from "@/lib/content";
 import styles from "../ExperienceLab.module.scss";
 
 export function Customer360Lab() {
-  const { markComplete } = useExperience();
+  const { markComplete, industry } = useExperience();
+  const profile = industryProfiles[industry];
   const [sent, setSent] = useState(false);
 
   return (
@@ -17,7 +19,7 @@ export function Customer360Lab() {
       <div className={styles.customer}>
         <div>
           <h4 style={{ margin: 0, fontFamily: "var(--font-display)", fontSize: "1.4rem" }}>
-            Ramesh Patel
+            {profile.customer}
           </h4>
           <span style={{ color: "var(--fg-muted)", fontSize: "0.9rem" }}>Customer since 2024</span>
         </div>
@@ -42,16 +44,16 @@ export function Customer360Lab() {
         </div>
 
         <div>
-          <strong>Services:</strong> AC Installation · 4 AC Services · AC Repair · AMC
+          <strong>Services:</strong> {profile.service} · Repeat visits · Repair · {profile.nextService}
         </div>
         <div>
-          <strong>Assets:</strong> AC #1 · AC #2 · AC #3
+          <strong>Assets:</strong> Asset #1 · Asset #2 · Asset #3
         </div>
 
         <div className={styles.nba}>
           <div style={{ fontWeight: 800, marginBottom: "0.35rem" }}>Next Best Action</div>
           <p style={{ marginBottom: "0.8rem", color: "var(--fg-ink-soft)" }}>
-            AMC renewal due in 21 days — send ₹1,999 annual package before the customer goes cold.
+             {profile.nextService} due in 21 days — send {profile.price} package before the customer goes cold.
           </p>
           <Button
             label={sent ? "Offer sent on WhatsApp" : "Send Offer"}

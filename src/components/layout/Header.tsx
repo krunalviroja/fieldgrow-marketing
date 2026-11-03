@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { brand, navLinks } from "@/lib/content";
+import { useExperience } from "@/context/ExperienceContext";
 import styles from "./Header.module.scss";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { industry, setIndustry } = useExperience();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -39,8 +41,17 @@ export function Header() {
             </a>
           ))}
           <div className={styles.actions}>
+            <label className={styles.industrySelect}>
+              <span className="sr-only">Choose industry</span>
+              <select value={industry} onChange={(event) => setIndustry(event.target.value as typeof industry)}>
+                <option value="ac">AC / HVAC</option>
+                <option value="cctv">CCTV / Security</option>
+                <option value="pest">Pest Control</option>
+                <option value="electrical">Electrical / Plumbing</option>
+              </select>
+            </label>
             <a className="fg-btn fg-btn--primary" href="#resources" onClick={() => setOpen(false)}>
-              Start free trial
+              Try live demo
             </a>
           </div>
         </nav>
