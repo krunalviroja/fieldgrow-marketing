@@ -93,9 +93,6 @@ export async function generateDocxBuffer(): Promise<Buffer> {
   children.push(heading(`${d.usp} — The Story`));
   d.loopStory.forEach((step, i) => children.push(bullet(`${i + 1}. ${step}`)));
 
-  children.push(heading("Problems We Eliminate"));
-  d.problemsSolved.forEach((p) => children.push(bullet(p)));
-
   children.push(heading("Why Business Owners Choose FieldGrow"));
   d.closing.forEach((p) => children.push(body(p)));
 

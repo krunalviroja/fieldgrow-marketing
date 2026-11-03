@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
 type Props = {
@@ -10,21 +10,19 @@ type Props = {
 
 function parseStat(value: string) {
   const match = value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
-  if (!match) return null;
+  // Values such as "1 → ∞" and "Offline" are labels, not counters.
+  if (!match || match[3].includes("→")) return null;
   return { prefix: match[1], num: Number(match[2]), suffix: match[3] };
 }
 
 export function CountUp({ value, className }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
-  const parsed = parseStat(value);
+  const parsed = useMemo(() => parseStat(value), [value]);
   const [display, setDisplay] = useState(parsed ? `${parsed.prefix}0${parsed.suffix}` : value);
 
   useEffect(() => {
-    if (!inView || !parsed) {
-      if (inView) setDisplay(value);
-      return;
-    }
+    if (!inView || !parsed) return;
 
     const duration = 1100;
     const start = performance.now();

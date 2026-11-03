@@ -117,17 +117,6 @@ export const pitchDocument = {
     "Automatic reminder + annual maintenance package is offered before the due date.",
     "Customer books again — one service creates the next revenue event.",
   ],
-  problemsSolved: [
-    "Owner has no live visibility of technicians and jobs.",
-    "Leads disappear inside WhatsApp chats.",
-    "Business knowledge leaves when employees leave.",
-    "Repeat customers are never followed up.",
-    "Quotations expire without follow-up.",
-    "Cash collection is ambiguous.",
-    "Profitability by job/service is unknown.",
-    "Marketing spend cannot be tied to booked jobs.",
-    "The owner personally becomes the operating system.",
-  ],
   closing: [
     "If you currently run on WhatsApp + phone calls + Excel + Tally + UPI + paper, your tools work individually — but they do not form a system.",
     "FieldGrow is that system: field operations plus a growth engine designed for Indian service businesses.",

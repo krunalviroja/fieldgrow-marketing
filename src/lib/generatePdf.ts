@@ -93,9 +93,6 @@ export async function generatePdfBuffer(): Promise<Buffer> {
   h(`${d.usp} — The Story`);
   d.loopStory.forEach((step, i) => bullet(`${i + 1}. ${step}`));
 
-  h("Problems We Eliminate");
-  d.problemsSolved.forEach(bullet);
-
   h("Why Business Owners Choose FieldGrow");
   d.closing.forEach((line) => p(line));
 
